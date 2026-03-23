@@ -164,11 +164,11 @@ model = load_model()
 # ─── CLASS DISPLAY INFO ────────────────────────────────────────────────────────
 
 CLASS_INFO = {
-    "H": {"label": "HIGH PERFORMANCE",   "emoji": "🏆", "css": "result-high",
+    "H": {"label": "HIGH PERFORMANCE",   "emoji": "", "css": "result-high",
           "range": "Score range: 90 – 100", "color": "#2ecc71"},
-    "M": {"label": "MIDDLE PERFORMANCE", "emoji": "📘", "css": "result-middle",
+    "M": {"label": "MIDDLE PERFORMANCE", "emoji": "", "css": "result-middle",
           "range": "Score range: 70 – 89", "color": "#f39c12"},
-    "L": {"label": "LOW PERFORMANCE",    "emoji": "⚠️",  "css": "result-low",
+    "L": {"label": "LOW PERFORMANCE",    "emoji": "",  "css": "result-low",
           "range": "Score range: 0 – 69",  "color": "#e74c3c"},
 }
 
@@ -177,13 +177,13 @@ CLASS_INFO = {
 
 st.markdown("""
 <div class="app-header">
-    <h1>🎓 Student Performance Predictor</h1>
+    <h1> Student Performance Predictor</h1>
     <p>Enter student data below to predict academic performance class</p>
 </div>
 """, unsafe_allow_html=True)
 
 if model is None:
-    st.error("⚠️ `student_model.pkl` not found. Place it in the same folder as `app.py` and restart.")
+    st.error(" `student_model.pkl` not found. Place it in the same folder as `app.py` and restart.")
     st.stop()
 
 
@@ -192,7 +192,7 @@ if model is None:
 with st.form("prediction_form"):
 
     # ── Section 1: Activity Data
-    st.markdown('<div class="section-title">📊 Student Activity Data</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Student Activity Data</div>', unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
 
@@ -205,13 +205,13 @@ with st.form("prediction_form"):
     with col2:
         visited_resources = st.slider("📚 Visited Resources", 0, 100, 50,
                                        help="Number of course resources the student visited")
-        discussion = st.slider("💬 Discussion Participation", 0, 100, 50,
+        discussion = st.slider(" Discussion Participation", 0, 100, 50,
                                 help="Number of times the student participated in discussions")
 
     st.markdown("---")
 
     # ── Section 2: Student Profile
-    st.markdown('<div class="section-title">👤 Student Profile</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Student Profile</div>', unsafe_allow_html=True)
 
     col3, col4, col5 = st.columns(3)
 
@@ -245,7 +245,7 @@ with st.form("prediction_form"):
     st.markdown("---")
 
     # ── Submit
-    submitted = st.form_submit_button("🔍  PREDICT PERFORMANCE")
+    submitted = st.form_submit_button(" PREDICT PERFORMANCE")
 
 
 # ─── PREDICTION ────────────────────────────────────────────────────────────────
